@@ -1,0 +1,8 @@
+<div>
+  <section class="main mt-6">
+    <h2 class="text-center mb-6 text-3xl">{{favouriteCourses.length ? 'My favourite courses' : 'There are no favourite courses :( But you can add right now!'}}</h2>
+    <div class="cards flex justify-around flex-wrap">
+      <kbtu-course-card *ngFor="let course of favouriteCourses" [course]="course"></kbtu-course-card>
+    </div>
+  </section>
+</div>
