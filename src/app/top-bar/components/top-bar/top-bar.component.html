@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="flex justify-between">
+  <div class="flex">
+    <div class="flex items-center cursor-pointer mr-5" mat-button [routerLink]="['']">
+      <mat-icon class="mr-4">
+        all_inclusive
+      </mat-icon>
+      <span>KBTU Courses</span>
+    </div>
+    <div *ngIf="currentUser">
+      <div class="cursor-pointer mr-2" [routerLink]="['/favourites']">
+        Favourites
+      </div>
+    </div>
+    <div class="cursor-pointer mr-2" [routerLink]="['/news']">
+      News
+    </div>
+    <div class="cursor-pointer mr-2" [routerLink]="['/about']">
+      About us
+    </div>
+    <div class="cursor-pointer" [routerLink]="['/areas']">
+      Programming areas
+    </div>
+  </div>
+  <div class="flex items-center cursor-pointer h-full" mat-button [matMenuTriggerFor]="menu">
+    <span class="mr-4">{{currentUser?.username}}</span>
+    <mat-icon>
+      account_circle
+    </mat-icon>
+  </div>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/profile']">Profile</button>
+  <button mat-menu-item [routerLink]="['/subscription']">Subscription plan</button>
+  <button mat-menu-item (click)="openCooperationDialog()">Cooperation</button>
+  <button mat-menu-item (click)="logout()">Sign out</button>
+</mat-menu>

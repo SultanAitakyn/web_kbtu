@@ -1,0 +1,17 @@
+<div class="auth-page">
+  <h2 class="text-center mb-0 text-2xl">Sign In</h2>
+  <p class="text-center underline mb-4"><a [routerLink]="['/register']">Don't have an account?</a></p>
+  <form (ngSubmit)="handleSubmit()" [formGroup]="form" class="flex flex-col items-center">
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" required formControlName="email">
+      <mat-error>Not correct format or empty</mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input matInput required formControlName="password">
+      <mat-error>Required field</mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="accent">Sign In</button>
+  </form>
+</div>

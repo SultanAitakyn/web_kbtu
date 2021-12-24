@@ -1,0 +1,59 @@
+<div class="auth-page">
+  <h2 class="text-center text-3xl mb-4">aitakynsultan@gmail.com</h2>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Profile">
+      <form (ngSubmit)="submitUpdate()" [formGroup]="form" class="flex flex-col items-center mt-4">
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName="username">
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email">
+          <mat-error>Not correct format</mat-error>
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <button type="submit" mat-flat-button color="accent">Update</button>
+      </form>
+    </mat-tab>
+
+    <mat-tab label="Bills">
+      <table mat-table [dataSource]="mockedDataSource" class="mat-elevation-z8 w-full">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

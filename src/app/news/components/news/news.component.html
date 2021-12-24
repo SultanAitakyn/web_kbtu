@@ -1,0 +1,15 @@
+<div class="flex justify-center items-center flex-col">
+  <mat-card class="max-w-md mb-4" *ngFor="let thisNews of news">
+    <mat-card-header>
+      <mat-card-title>{{thisNews.title}}</mat-card-title>
+      <mat-card-subtitle>{{thisNews.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="m-0" mat-card-image src="{{thisNews.image}}" alt="Photo of a Shiba Inu">
+    <mat-card-content class="m-2">
+      <p class="whitespace-pre-wrap">
+        {{thisNews.content}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+

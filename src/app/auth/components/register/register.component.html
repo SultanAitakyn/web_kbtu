@@ -1,0 +1,25 @@
+<div class="auth-page">
+  <h2 class="text-center mb-0 text-2xl">Sign Up</h2>
+  <h2
+    class="text-center mb-0 text-2xl pt-2 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change">
+    Hello, Bro!</h2>
+  <p class="text-center underline mb-4"><a [routerLink]="['/login']">Have an account?</a></p>
+  <form (ngSubmit)="handleSubmit()" [formGroup]="form" class="flex flex-col items-center">
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Enter your name</mat-label>
+      <input matInput placeholder="Name" required formControlName="username">
+      <mat-error>Required field</mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" required formControlName="email">
+      <mat-error>Not correct format or empty</mat-error>
+    </mat-form-field>
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input matInput required formControlName="password">
+      <mat-error>Required field</mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="accent">Sign Up</button>
+  </form>
+</div>
