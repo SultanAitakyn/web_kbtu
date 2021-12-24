@@ -1,0 +1,19 @@
+<div>
+  <section class="welcome-block">
+    <h1 class="mb-1 text-xl">Welcome to KBTU courses</h1>
+    <p class="mb-2">This is a free web app for taking programming courses. Let's hack!</p>
+    <div class="flex">
+      <span class="px-4 py-2 rounded-full text-gray-500 bg-gray-200
+    font-semibold text-sm flex align-center w-max cursor-pointer
+    active:bg-gray-300 transition duration-300 ease mr-4" *ngFor="let category of categories">
+      {{category}}
+      </span>
+    </div>
+  </section>
+  <section class="main mt-6">
+    <h2 class="text-center mb-6 text-xl">Last uploaded courses</h2>
+    <div class="cards flex justify-around flex-wrap">
+      <kbtu-course-card *ngFor="let course of lastUploadedCourses" [course]="course"></kbtu-course-card>
+    </div>
+  </section>
+</div>
