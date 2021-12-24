@@ -1,0 +1,107 @@
+<div>
+  <h2 class="text-left text-3xl mb-4">{{course?.name}}</h2>
+
+  <div class="flex justify-center">
+    <div class="flex flex-col md:flex-row rounded-lg bg-white shadow-lg">
+      <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+           src="{{course?.image}}">
+      <div class="p-6 flex flex-col justify-start">
+        <div class="flex">
+          <div class="flex items-center text-xs text-gray-600 mr-2">
+            <mat-icon class="mr-2">
+              calendar_today
+            </mat-icon>
+            <div>
+              <p class="text-gray-800">Uploaded date</p>
+              <p class="text-gray-600">23/04/2021</p>
+            </div>
+          </div>
+
+          <div class="flex items-center text-gray-600 text-xs mr-2">
+            <mat-icon class="mr-2">
+              language
+            </mat-icon>
+            <div>
+              <p class="text-gray-800">Language</p>
+              <p class="text-gray-600">English</p>
+            </div>
+          </div>
+
+          <div class="flex items-center text-xs text-gray-600 mr-2">
+            <mat-icon class="mr-2">
+              calendar_today
+            </mat-icon>
+            <div>
+              <p class="text-gray-800">Last updated</p>
+              <p class="text-gray-600">23/09/2021</p>
+            </div>
+          </div>
+
+          <div class="flex items-center text-xs text-gray-600">
+            <mat-icon class="mr-2">
+              web
+            </mat-icon>
+            <div>
+              <p class="text-gray-800">Source</p>
+              <p class="text-gray-600">23/04/2021</p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="text-gray-700 text-base mb-4 mt-4">
+          {{course?.description}}
+        </p>
+
+
+        <div class="text-gray-600 flex">
+          <div class="flex mr-4 items-center">
+            <mat-icon (click)="likeCourse()" class="hover:text-red-700 cursor-pointer mr-2">thumb_up</mat-icon>
+            <p>{{course?.likes?.length}}</p>
+          </div>
+          <div class="flex items-center">
+            <mat-icon (click)="dislikeCourse()"  class="hover:text-red-700 cursor-pointer mr-2">thumb_down</mat-icon>
+            <p>{{course?.dislikes?.length}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <iframe class="w-full h-80 rounded-lg" *ngIf="course" [src]="course.video | safe">
+    </iframe>
+  </div>
+
+  <div class="flex items-center shadow-lg mt-4 mb-4 w-full">
+    <form class="w-full bg-zinc-700 rounded-lg px-4 pt-2">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <h2 class="px-4 pt-3 pb-2 text-lg">Add a new comment</h2>
+        <div class="w-full md:w-full px-3 mb-2 mt-2">
+          <textarea [(ngModel)]="currentComment" class="bg-gray-100 rounded border text-gray-700 border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your Comment' required></textarea>
+        </div>
+        <div class="w-full md:w-full flex items-start md:w-full px-3">
+          <div class="-mr-1">
+            <button (click)="postComment()" mat-flat-button color="primary">Post comment</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div *ngIf="comments">
+    <h2 class="mt-4 text-xl">All comments</h2>
+    <mat-list *ngFor="let comment of comments">
+      <mat-list-item>
+        <mat-icon mat-list-icon>face</mat-icon>
+        <div mat-line>{{comment.email}}</div>
+        <div mat-line>{{comment.comment}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+
+</div>
+
